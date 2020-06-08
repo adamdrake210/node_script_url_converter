@@ -11,18 +11,12 @@ const csvWriter = createCsvWriter({
   ],
 });
 
-// loop through all the lines on urls.txt and update them to in_app links
-// then run request on them to see their http response
-// then put it all in an array of objects
-// Write this array of objects to a csv file
-
 const readingData = () => {
   console.log("start");
   fs.readFile("urls.txt", function (error, data) {
     if (error) {
       throw error;
     }
-    // console.log(data.toString().split("\n"));
 
     const promise = data
       .toString()
@@ -44,24 +38,12 @@ const readingData = () => {
   });
 };
 
-const createArray = (data, callback) => {};
-
-function writeCsv(arr) {
+const writeCsv = (arr) => {
   csvWriter
     .writeRecords(arr)
-    .then(() => console.log("The CSV file was written successfully"));
-}
-
-const testData = [
-  {
-    url: "https://pages.ebay.de/gutscheine/all/index.html",
-    inappurl: "https://pages.ebay.de/gutscheine/all/index_app.html",
-  },
-  {
-    url: "https://pages.ebay.com/coupon/CPNN1/index.html",
-    inappurl: "https://pages.ebay.com/coupon/CPNN1/index_app.html",
-  },
-];
+    .then(() => console.log("The CSV file was written successfully"))
+    .catch(() => console.warn("Error with Writing CSV."));
+};
 
 const main = async (arr) => {
   const promises = arr
@@ -78,20 +60,7 @@ const main = async (arr) => {
 
   const results = await Promise.all(promises);
   writeCsv(results);
-
-  console.log(results);
 };
 
 const results = readingData();
 results;
-
-// const data = [
-//   {
-//     url: "https://google.com",
-//     httpstatus: 200,
-//   },
-//   {
-//     url: "https://google.com",
-//     httpstatus: 200,
-//   },
-// ];
