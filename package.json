@@ -1,0 +1,18 @@
+{
+  "name": "url_script",
+  "version": "0.0.1",
+  "description": "Url parser",
+  "main": "nodejs-async.js",
+  "dependencies": {
+    "csv-writer": "^1.6.0",
+    "got": "^11.3.0",
+    "node-fetch": "^2.6.0",
+    "request": "^2.81.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adam Drake",
+  "license": "ISC"
+}
