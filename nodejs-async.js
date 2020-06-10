@@ -23,16 +23,24 @@ const readingData = () => {
       .split("\n")
       .map((url) => {
         let appUrl;
+        url = url.replace("\r", "");
         if (url.includes(".html/")) {
           appUrl = url.replace(".html/", "_app.html");
           appUrl = appUrl.replace("\r", "");
-          url = url.replace("\r", "");
+          return {
+            url,
+            inappurl: appUrl,
+          };
+        } else {
+          appUrl = `${url}index_app.html`;
           return {
             url,
             inappurl: appUrl,
           };
         }
       });
+
+    console.log("promise: ", promise);
 
     main(promise);
   });
