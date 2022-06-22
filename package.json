@@ -5,7 +5,7 @@
   "main": "nodejs-async.js",
   "dependencies": {
     "csv-writer": "^1.6.0",
-    "got": "^11.3.0",
+    "got": "^11.8.5",
     "node-fetch": "^2.6.0",
     "request": "^2.81.0"
   },
